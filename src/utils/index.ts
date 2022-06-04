@@ -1,5 +1,5 @@
 //排除value值为0的情况
-export const isFalsy = (value: any) => (value === 0 ? false : !value);
+export const isFalsy = (value: unknown) => (value === 0 ? false : !value);
 //清理对象中的空值
 export const cleanObject = (object: object) => {
   // Object.assign({},object)

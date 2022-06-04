@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
-export const useDebounce = (value: any, delay?: number) => {
+//后面用范型来规范类型
+export const useDebounce = (value: unknown, delay?: number): any => {
   const [debouncedValue, setDebouncedValue] = useState(value);
   useEffect(() => {
     //  每次在value变化以后，设置一个定时器
