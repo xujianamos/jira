@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useDebounce = (value: any, delay: number) => {
+export const useDebounce = (value: any, delay?: number) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
   useEffect(() => {
     //  每次在value变化以后，设置一个定时器

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import qs from "qs";
+import * as qs from "qs";
+
 import { cleanObject } from "../../utils";
 
 import { List } from "./list";
@@ -32,7 +33,7 @@ export const ProjectListScreen = () => {
         setUsers(await res.json());
       }
     });
-  }, []);
+  });
 
   return (
     <div>
