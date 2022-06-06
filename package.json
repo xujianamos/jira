@@ -50,6 +50,7 @@
     "@types/qs": "^6.9.7",
     "eslint-config-prettier": "^8.5.0",
     "husky": ">=6",
+    "jira-dev-tool": "^1.7.61",
     "lint-staged": ">=10",
     "prettier": "2.6.2"
   },
