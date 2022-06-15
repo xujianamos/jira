@@ -39,8 +39,45 @@ export const http = async (endpoint: string, { data, token, headers, ...customCo
   });
 };
 
+//js中的typeof，是在runtime时运行的
+//return typeof 1 === 'number'
+
+// TS中的typeof，是在静态环境运行的
 export const useHttp = () => {
   const { user } = useAuth();
   //TODO 讲解TS操作符
   return (...[endpoint, config]: Parameters<typeof http>) => http(endpoint, { ...config, token: user?.token });
+};
+
+//联合类型
+let myFavoriteNumber: string | number;
+myFavoriteNumber = "ss";
+myFavoriteNumber = 22;
+//TS2322: Type '{}' is not assignable to type 'string | number'.
+// myFavoriteNumber={}
+let jackFavoriteNumber: string | number;
+
+//类型别名在很多情况下可以和interface互换
+// interface Person {
+//   name: string;
+// }
+// type Person={name:string}
+// const xiaoMing: Person = { name: "sss" };
+
+// 类型别名,interface在这种情况下没法替代type
+type FavoriteNumber = string | number;
+let roseFavoriteNumber: FavoriteNumber = "7";
+
+//interface也没法实现utility type
+type Person = {
+  name: string;
+  age: number;
+};
+const xiaoMing: Partial<Person> = {};
+const shenMiRen: Omit<Person, "name" | "age"> = {};
+type PersonKeys = keyof Person;
+
+//Partial 的实现
+type Partial<T> = {
+  [P in keyof T]?: T[P];
 };
