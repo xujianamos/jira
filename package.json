@@ -24,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "preinstall": "only-allow yarn",
+    "preinstall": "npx only-allow yarn",
     "json_server": "json-server --watch __json_server_mock__/db.json --port 3001 --middlewares __json_server_mock__/middleware.js"
   },
   "eslintConfig": {
