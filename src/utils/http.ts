@@ -49,7 +49,7 @@ export const useHttp = () => {
   return (...[endpoint, config]: Parameters<typeof http>) => http(endpoint, { ...config, token: user?.token });
 };
 
-//联合类型
+//联合类型 |
 let myFavoriteNumber: string | number;
 myFavoriteNumber = "ss";
 myFavoriteNumber = 22;
