@@ -17,6 +17,7 @@ interface ListProps extends TableProps<Project> {
 export const List = ({ users, ...props }: ListProps) => {
   return (
     <Table
+      rowKey={(record) => record.id}
       pagination={false}
       columns={[
         { title: "名称", dataIndex: "name", sorter: (a, b) => a.name.localeCompare(b.name) },
