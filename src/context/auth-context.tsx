@@ -1,9 +1,9 @@
 import React, { ReactNode, useState } from "react";
-import * as auth from "../auth-provider";
-import { User } from "../screens/project-list/search-panel";
-import { http } from "../utils/http";
-import { useMount } from "../hooks/useMount";
-import { useAsync } from "../hooks/useAsync";
+import * as auth from "auth-provider";
+import { User } from "screens/project-list/search-panel";
+import { http } from "utils/http";
+import { useMount } from "hooks/useMount";
+import { useAsync } from "hooks/useAsync";
 interface AuthForm {
   username: string;
   password: string;
@@ -32,7 +32,7 @@ AuthContext.displayName = "AuthContext";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   // const [user, setUser] = useState<User | null>(null);
-  const { data: user, error, isLoading, isIdle, isError, run, setState: setUser } = useAsync<User | null>();
+  const { data: user, error, isLoading, isIdle, isError, run, setData: setUser } = useAsync<User | null>();
 
   //point free
   const login = (form: AuthForm) => auth.login(form).then(setUser);
