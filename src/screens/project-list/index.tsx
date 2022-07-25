@@ -8,7 +8,9 @@ import styled from "@emotion/styled";
 import { Typography } from "antd";
 import { useProjects } from "utils/project";
 import { useUsers } from "utils/user";
+import { useDocumentTitle } from "hooks/useDocumentTitle";
 export const ProjectListScreen = () => {
+  useDocumentTitle("项目列表", false);
   const [param, setParam] = useState({
     name: "",
     personId: "",
