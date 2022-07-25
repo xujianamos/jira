@@ -25,7 +25,7 @@ export const List = ({ users, ...props }: ListProps) => {
           title: "名称",
           sorter: (a, b) => a.name.localeCompare(b.name),
           render(value, project) {
-            return <NavLink to={String(project.id)}>{project.name}</NavLink>;
+            return <NavLink to={`projects/${String(project.id)}`}>{project.name}</NavLink>;
           },
         },
         { title: "部门", dataIndex: "organization" },

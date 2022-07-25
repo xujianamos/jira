@@ -27,3 +27,6 @@ export const cleanObject = (object: { [key: string]: unknown }) => {
   });
   return result;
 };
+
+//重置路由
+export const resetRoute = () => (window.location.href = window.location.origin);
