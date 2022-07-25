@@ -2,6 +2,7 @@ import React from "react";
 import { User } from "./search-panel";
 import { Table, TableProps } from "antd";
 import dayjs from "dayjs";
+import { NavLink } from "react-router-dom";
 
 export interface Project {
   id: string;
@@ -20,7 +21,13 @@ export const List = ({ users, ...props }: ListProps) => {
       rowKey={(record) => record.id}
       pagination={false}
       columns={[
-        { title: "名称", dataIndex: "name", sorter: (a, b) => a.name.localeCompare(b.name) },
+        {
+          title: "名称",
+          sorter: (a, b) => a.name.localeCompare(b.name),
+          render(value, project) {
+            return <NavLink to={String(project.id)}>{project.name}</NavLink>;
+          },
+        },
         { title: "部门", dataIndex: "organization" },
         {
           title: "负责人",
